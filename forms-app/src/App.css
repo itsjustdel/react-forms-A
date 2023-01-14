@@ -1,0 +1,141 @@
+body {
+  background: #5555e4;
+  font-family: "Roboto";
+  font-style: normal;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+input:focus {
+  outline: none;
+}
+.container {
+  margin: 2em;
+  width: auto;
+  /* height: 844px; */
+  background: #ffffff;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 39px;
+  gap: 10px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 24px;
+  color: #000000;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.input-container {
+  display: flex;
+  padding-left: 0.5em;
+  margin-bottom: 0.5em;
+  border: 1px solid #5555e4;
+  border-radius: 5px;
+  width: 326px;
+  height: 48px;
+}
+.large {
+  padding-top: 0.5em;
+  height: auto;
+}
+
+.input-text {
+  left: 3.37%;
+  right: 8.06%;
+  top: 0%;
+  bottom: 0%;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #1a1a1a;
+  border: none;
+}
+
+.send-button {
+  justify-content: center;
+  align-items: center;
+  background: #5555e4;
+  border-radius: 5px;
+}
+
+.send-button-text {
+  width: 37px;
+  height: 20px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #fbfbfb;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.textarea {
+  display: flex;
+  padding: 6px;
+  resize: vertical;
+  min-height: 148px;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+}
+
+.textarea:focus {
+  outline: none;
+}
+
+.text-disclaimer {
+  width: 326px;
+  height: 48px;
+  left: 32px;
+  top: 536px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  display: flex;
+  align-items: flex-end;
+
+  color: #000000;
+}
+
+.clear-form {
+  width: 217px;
+  height: 48px;
+  left: 32px;
+  top: 584px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 20px;
+  /* or 167% */
+
+  display: flex;
+  align-items: center;
+  text-decoration-line: underline;
+
+  color: #5555e4;
+}
