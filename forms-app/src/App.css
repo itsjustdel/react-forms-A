@@ -14,7 +14,7 @@ input:focus {
 }
 .container {
   margin: 2em;
-  width: auto;
+  width: 403px;
   /* height: 844px; */
   background: #ffffff;
 }
@@ -22,8 +22,7 @@ input:focus {
 .form-container {
   display: flex;
   flex-direction: column;
-  padding: 14px 39px;
-  gap: 10px;
+  padding: 2em;
 }
 
 .title {
@@ -31,14 +30,13 @@ input:focus {
   font-size: 36px;
   line-height: 24px;
   color: #000000;
-  padding-top: 0.5em;
   padding-bottom: 0.5em;
 }
 
 .input-container {
   display: flex;
   padding-left: 0.5em;
-  margin-bottom: 0.5em;
+  margin-top: 0.5em;
   border: 1px solid #5555e4;
   border-radius: 5px;
   width: 326px;
@@ -138,4 +136,28 @@ input:focus {
   text-decoration-line: underline;
 
   color: #5555e4;
+}
+
+.error-message {
+  /* position: absolute;
+width: 315px;
+height: 17px;
+left: 41px;
+top: 366px; */
+
+  /* Small Text - 12pt */
+  padding-left: 0.5em;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  /* or 133% */
+
+  /* display: flex;
+align-items: center; */
+
+  /* Dawn Danger 500 */
+
+  color: #f0453f;
 }
