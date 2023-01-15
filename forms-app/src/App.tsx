@@ -1,21 +1,20 @@
-import "react-app-polyfill/ie11";
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import "react-app-polyfill/ie11"
+import * as React from "react"
 import {
   Formik,
   Field,
   Form,
-  FormikHelpers,
-  useField,
-  FieldHookConfig,
-} from "formik";
-import "./App.css";
-import TextArea from "./components/Textarea";
+  FormikHelpers
+} from "formik"
+import "./App.css"
+import TextArea from "./components/Textarea"
 
 interface Values {
-  firstName: string;
-  lastName: string;
-  email: string;
+  name: string
+  company:string
+  telephone:string
+  email: string
+  message:string
 }
 
 const App = () => {
@@ -25,9 +24,11 @@ const App = () => {
         <div className="title">Contact us</div>
         <Formik
           initialValues={{
-            firstName: "",
-            lastName: "",
-            email: "",
+            name: "",
+            company: "",
+            telephone: "",
+            email:"",
+            message:""
           }}
           onSubmit={(
             values: Values,
@@ -75,10 +76,10 @@ const App = () => {
             </div>
             
             <div className="input-container large">
-              <TextArea name="firstName" placeholder="Enter a message..." />
+              <TextArea name="message" placeholder="Enter a message..." />
             </div>
             <div className="input-container send-button">
-              <div className="send-button-text">Send</div>
+              <button className="send-button-text" type="submit">Send</button>
             </div>
 
             <div className="text-disclaimer">
