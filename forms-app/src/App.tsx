@@ -1,5 +1,5 @@
 import "react-app-polyfill/ie11";
-import "./App.css";
+import "./css/App.css";
 import FormikForm from "./components/FormikForm";
 
 const App = () => {
