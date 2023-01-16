@@ -13,7 +13,7 @@ const contactUsSchema = yup.object({
   name: yup
     .string()
     .matches(/^[A-Za-z ]*$/, "* name must contain only alphabetic characters ")
-    .required(),
+    .required("* name is a required field"),
   company: yup.string().notRequired(),
   email: yup.string().email(emailError).required(emailError),
   telephone: yup
