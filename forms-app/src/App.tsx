@@ -27,13 +27,24 @@ const contactUsSchema = yup.object({
     .required(messageError),
 });
 
-interface Values extends yup.InferType<typeof contactUsSchema>{
+interface Values extends yup.InferType<typeof contactUsSchema> {
   name: string;
   company: string;
   telephone: string;
   email: string;
   message: string;
 }
+
+const classNameForValidationState = (field: string | undefined, touched: boolean | undefined) => {  
+  if (field !== undefined) {
+    return "invalid-input";
+  }
+  if (touched !== undefined){
+    return "valid-input";
+  }
+  return "";
+};
+
 const App = () => {
   return (
     <div className="container">
@@ -53,27 +64,26 @@ const App = () => {
           // onSubmit={values => {
           //   console.log(values);
           // }}
-          
+
           onSubmit={(
             values: Values,
             { setSubmitting }: FormikHelpers<Values>
           ) => {
-          
-            console.log(contactUsSchema.validate(values));
+            //console.log(contactUsSchema.validate(values));
             // setTimeout(() => { // look in to submission promises?
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
             // }, 100);
           }}
         >
-          {({ errors, touched, validateField, validateForm, setFieldError }) => (
+          {({ errors, touched }) => (
             <Form>
-              <div className="input-container">
+              <div className={"input-container "+ classNameForValidationState(errors.name, touched.name)}>
                 <Field
-                  className="input-text"
+                  className={"input-text"}
                   id="name"
                   name="name"
-                  placeholder="Your Name"               
+                  placeholder="Your Name"
                 />
               </div>
               <ErrorMessage

@@ -35,23 +35,32 @@ input:focus {
 
 .input-container {
   display: flex;
-  padding-left: 0.5em;
+  /* padding-left: 0.5em;
+  padding-right: 0.5em; */
   margin-top: 0.5em;
   border: 1px solid #5555e4;
   border-radius: 5px;
-  width: 326px;
+  /* width: 326px; */
   height: 48px;
 }
 .large {
   padding-top: 0.5em;
   height: auto;
 }
+.invalid-input{
+  background-color: #FEE6D8;
+  border: 1px solid #F0453F;
+  color: #F0453F;
+}
+.valid-input{
+  background-color: #EDF7E9;
+  border: 1px solid #0A6018;
+  color: #0A6018;
+}
 
 .input-text {
-  left: 3.37%;
-  right: 8.06%;
-  top: 0%;
-  bottom: 0%;
+  width: 100%;
+  padding-left: 0.5em;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -59,8 +68,9 @@ input:focus {
   line-height: 20px;
   display: flex;
   align-items: center;
-  color: #1a1a1a;
+  color: inherit;
   border: none;
+  background: rgba(0, 0, 0, 0);
 }
 
 .send-button {
