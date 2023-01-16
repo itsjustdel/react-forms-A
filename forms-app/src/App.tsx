@@ -1,13 +1,13 @@
 import "react-app-polyfill/ie11";
 import "./css/App.css";
-import FormikForm from "./components/FormikForm";
+import ContactUsForm from "./components/ContactUsForm";
 
 const App = () => {
   return (
     <div className="container">
       <div className="form-container">
         <div className="title">Contact us</div>
-        <FormikForm />
+        <ContactUsForm />
       </div>
     </div>
   );
