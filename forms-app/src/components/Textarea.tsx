@@ -5,7 +5,7 @@ const TextArea = (props: FieldHookConfig<string>) => {
   const [field] = useField(props);
   return (
     <>
-      <textarea className="textarea" {...field} placeholder={props.placeholder}/>
+      <textarea className="input-text textarea" {...field} placeholder={props.placeholder}/>
     </>
   );
 };

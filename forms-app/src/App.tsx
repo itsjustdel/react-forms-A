@@ -35,14 +35,20 @@ interface Values extends yup.InferType<typeof contactUsSchema> {
   message: string;
 }
 
-const classNameForValidationState = (field: string | undefined, touched: boolean | undefined) => {  
-  if (field !== undefined) {
+const fieldClass = (error: string | undefined, touched: boolean | undefined, value:string) => {  
+  console.log("error " +error)
+  console.log("touched " +touched)
+  console.log("value " +value) 
+  if (value === "" && touched === undefined){
+    return ""
+  } 
+  else if (error !== undefined && touched !== undefined) {
     return "invalid-input";
+  }  
+  else if (touched !== undefined && value !==""){
+    return "valid-input"
   }
-  if (touched !== undefined){
-    return "valid-input";
-  }
-  return "";
+ return "end"
 };
 
 const App = () => {
@@ -51,8 +57,8 @@ const App = () => {
       <div className="form-container">
         <div className="title">Contact us</div>
         <Formik
-          validateOnChange={false}
-          // validateOnBlur={false}
+            validateOnChange={false}
+          //  validateOnBlur={false}          
           initialValues={{
             name: "",
             company: "",
@@ -76,11 +82,11 @@ const App = () => {
             // }, 100);
           }}
         >
-          {({ errors, touched }) => (
+          {({ errors, touched,values }) => (
             <Form>
-              <div className={"input-container "+ classNameForValidationState(errors.name, touched.name)}>
+              <div className={"input-container "+ fieldClass(errors.name, touched.name, values.name.valueOf())}>
                 <Field
-                  className={"input-text"}
+                  className="input-text"
                   id="name"
                   name="name"
                   placeholder="Your Name"
@@ -99,7 +105,7 @@ const App = () => {
                   placeholder="Company Name"
                 />
               </div>
-              <div className="input-container">
+              <div className={"input-container "+ fieldClass(errors.telephone, touched.telephone,values.telephone.valueOf())}>
                 <Field
                   className="input-text"
                   id="telephone"
@@ -112,7 +118,7 @@ const App = () => {
                 className="error-message"
                 name="telephone"
               />
-              <div className="input-container">
+              <div className={"input-container "+ fieldClass(errors.email, touched.email,values.email.valueOf())}>
                 <Field
                   className="input-text"
                   id="email"
@@ -126,7 +132,7 @@ const App = () => {
                 name="email"
               />
 
-              <div className="input-container large">
+              <div className={"input-container large " + fieldClass(errors.message, touched.message,values.message.valueOf())}>
                 <TextArea name="message" placeholder="Enter a message..." />
               </div>
               <ErrorMessage
