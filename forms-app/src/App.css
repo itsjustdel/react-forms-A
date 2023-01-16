@@ -13,7 +13,6 @@ input:focus {
 .container {
   margin: 2em;
   width: 403px;
-  /* height: 844px; */
   background: #ffffff;
 }
 .form-container {
@@ -164,12 +163,18 @@ input:-webkit-autofill:focus {
   .large {
     height: 100%;
   }
-  .text-disclaimer{
+  .text-disclaimer {
     width: 50%;
   }
-  #send-button { order: 3;
-    width:256px }
-  #disclaimer { order: 1; }
-  #clear-form { order: 2; 
-    width:498px}
+  #send-button {
+    order: 3;
+    width: 256px;
+  }
+  #disclaimer {
+    order: 1;
+  }
+  #clear-form {
+    order: 2;
+    width: 498px;
+  }
 }
