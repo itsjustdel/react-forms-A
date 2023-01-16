@@ -35,20 +35,22 @@ interface Values extends yup.InferType<typeof contactUsSchema> {
   message: string;
 }
 
-const fieldClass = (error: string | undefined, touched: boolean | undefined, value:string) => {  
-  console.log("error " +error)
-  console.log("touched " +touched)
-  console.log("value " +value) 
-  if (value === "" && touched === undefined){
-    return ""
-  } 
-  else if (error !== undefined && touched !== undefined) {
+const fieldClass = (
+  error: string | undefined,
+  touched: boolean | undefined,
+  value: string
+) => {
+  console.log("error " + error);
+  console.log("touched " + touched);
+  console.log("value " + value);
+  if (value === "" && touched === undefined) {
+    return "";
+  } else if (error !== undefined && touched !== undefined) {
     return "invalid-input";
-  }  
-  else if (touched !== undefined && value !==""){
-    return "valid-input"
+  } else if (touched !== undefined && value !== "") {
+    return "valid-input";
   }
- return "end"
+  return "end";
 };
 
 const App = () => {
@@ -57,8 +59,8 @@ const App = () => {
       <div className="form-container">
         <div className="title">Contact us</div>
         <Formik
-            validateOnChange={false}
-          //  validateOnBlur={false}          
+          validateOnChange={false}
+          //  validateOnBlur={false}
           initialValues={{
             name: "",
             company: "",
@@ -82,9 +84,14 @@ const App = () => {
             // }, 100);
           }}
         >
-          {({ errors, touched,values }) => (
+          {({ errors, touched, values, resetForm}) => (
             <Form>
-              <div className={"input-container "+ fieldClass(errors.name, touched.name, values.name.valueOf())}>
+              <div
+                className={
+                  "input-container " +
+                  fieldClass(errors.name, touched.name, values.name.valueOf())
+                }
+              >
                 <Field
                   className="input-text"
                   id="name"
@@ -105,7 +112,16 @@ const App = () => {
                   placeholder="Company Name"
                 />
               </div>
-              <div className={"input-container "+ fieldClass(errors.telephone, touched.telephone,values.telephone.valueOf())}>
+              <div
+                className={
+                  "input-container " +
+                  fieldClass(
+                    errors.telephone,
+                    touched.telephone,
+                    values.telephone.valueOf()
+                  )
+                }
+              >
                 <Field
                   className="input-text"
                   id="telephone"
@@ -118,7 +134,16 @@ const App = () => {
                 className="error-message"
                 name="telephone"
               />
-              <div className={"input-container "+ fieldClass(errors.email, touched.email,values.email.valueOf())}>
+              <div
+                className={
+                  "input-container " +
+                  fieldClass(
+                    errors.email,
+                    touched.email,
+                    values.email.valueOf()
+                  )
+                }
+              >
                 <Field
                   className="input-text"
                   id="email"
@@ -132,7 +157,16 @@ const App = () => {
                 name="email"
               />
 
-              <div className={"input-container large " + fieldClass(errors.message, touched.message,values.message.valueOf())}>
+              <div
+                className={
+                  "input-container large " +
+                  fieldClass(
+                    errors.message,
+                    touched.message,
+                    values.message.valueOf()
+                  )
+                }
+              >
                 <TextArea name="message" placeholder="Enter a message..." />
               </div>
               <ErrorMessage
@@ -153,9 +187,11 @@ const App = () => {
                 to exercise your privacy rights, including opting out of direct
                 marketing.
               </div>
-              <a href="test me">
-                <div className="clear-form">Clear form</div>
-              </a>
+
+              <button className="clear-form" onClick={(event) => { 
+                event.preventDefault()                
+                resetForm()
+              }}>Clear form</button>
             </Form>
           )}
         </Formik>
