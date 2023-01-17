@@ -1,4 +1,4 @@
-export const fieldClass = (
+export const InputClass = (
   error: string | undefined,
   touched: boolean | undefined,
   value: string
@@ -10,5 +10,5 @@ export const fieldClass = (
   } else if (touched !== undefined && value !== "") {
     return "valid-input";
   }
-  return "default";
+  return "";
 };

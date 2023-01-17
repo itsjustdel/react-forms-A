@@ -5,10 +5,16 @@ import "yup-phone";
 import Input from "./Input";
 
 const FormikForm = () => {
-  const messageError =
-    "* please provide a message that is between 20 and 500 characters in length";
-  const emailError = "* please provide a valid email address";
+  interface Values extends yup.InferType<typeof contactUsSchema> {
+    name: string;
+    company: string;
+    telephone: string;
+    email: string;
+    message: string;
+  }
 
+  const messageError = "* please provide a message that is between 20 and 500 characters in length";
+  const emailError = "* please provide a valid email address";
   const contactUsSchema = yup.object({
     name: yup
       .string()
@@ -30,16 +36,9 @@ const FormikForm = () => {
       .required(messageError),
   });
 
-  interface Values extends yup.InferType<typeof contactUsSchema> {
-    name: string;
-    company: string;
-    telephone: string;
-    email: string;
-    message: string;
-  }
-
   return (
     <Formik
+      validationSchema={contactUsSchema}
       validateOnChange={false}
       initialValues={{
         name: "",
@@ -47,18 +46,10 @@ const FormikForm = () => {
         telephone: "",
         email: "",
         message: "",
-      }}
-      validationSchema={contactUsSchema}
-      // onSubmit={values => {
-      //   console.log(values);
-      // }}
-
-      onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
-        //console.log(contactUsSchema.validate(values));
-        // setTimeout(() => { // look in to submission promises?
-        alert(JSON.stringify(values, null, 2));
-        setSubmitting(false);
-        // }, 100);
+      }}      
+      onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {        
+          alert(JSON.stringify(values, null, 2));
+          setSubmitting(false);        
       }}
     >
       {({ errors, touched, values, resetForm }) => (
@@ -91,7 +82,6 @@ const FormikForm = () => {
                 value={values.email.valueOf()}
                 placeholder="Email Address"
               />
-              <div>FIX AUTOCOMPLETE FROM RED TEXT COLOUR</div>
             </div>
             <div className="message-container">
               <TextArea

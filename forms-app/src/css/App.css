@@ -42,12 +42,14 @@ input:focus {
 .invalid-input {
   background-color: #fee6d8;
   border: 1px solid #f0453f;
-  color: #f0453f;
+  color: #f0453f;  
+  -webkit-text-fill-color: #f0453f;
 }
 .valid-input {
   background-color: #edf7e9;
   border: 1px solid #0a6018;
   color: #0a6018;
+  -webkit-text-fill-color: #0a6018
 }
 .input-text {
   width: 100%;
@@ -59,7 +61,7 @@ input:focus {
   line-height: 20px;
   display: flex;
   align-items: center;
-  color: inherit;
+  color: inherit;  
   border: none;
   background: rgba(0, 0, 0, 0);
 }
@@ -67,6 +69,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:focus {
   transition: background-color 600000s 0s, color 600000s 0s;
 }
+
 .send-button {
   justify-content: center;
   align-items: center;

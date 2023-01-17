@@ -1,7 +1,7 @@
 import React from "react";
 import { useField, FieldHookConfig, ErrorMessage } from "formik";
 import { InputProps } from "../interfaces/InputProps";
-import { fieldClass } from "../helpers/ClassName";
+import { InputClass } from "../helpers/InputClass";
 
 const TextAreaInner = (props: FieldHookConfig<string>) => {
   const [field] = useField(props);
@@ -24,7 +24,7 @@ const TextArea: React.FC<InputProps> = ({
   return (
     <>
       <div
-        className={"input-container large " + fieldClass(error, touched, value)}
+        className={"input-container large " + InputClass(error, touched, value)}
       >
         <TextAreaInner name={name} placeholder={placeholder} />
       </div>

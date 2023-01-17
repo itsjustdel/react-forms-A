@@ -1,6 +1,6 @@
 import { Field, ErrorMessage } from "formik";
 import { InputProps } from "../interfaces/InputProps";
-import { fieldClass } from "../helpers/ClassName";
+import { InputClass } from "../helpers/InputClass";
 const Input: React.FC<InputProps> = ({
   name,
   error,
@@ -21,7 +21,7 @@ const Input: React.FC<InputProps> = ({
   }
   return (
     <>
-      <div className={"input-container " + fieldClass(error, touched, value)}>
+      <div className={"input-container " + InputClass(error, touched, value)}>
         <Field
           className="input-text"
           id={name}
