@@ -65,6 +65,8 @@ const FormikForm = () => {
               />
               <Input
                 name="company"
+                error={errors.company}
+                touched={touched.company}
                 value={values.company.valueOf()}
                 placeholder="Company Name"
               />
